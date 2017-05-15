@@ -15,6 +15,14 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+<<<<<<< ac2dcc6cc942be06996e1a009665ca48cda08f0d
+=======
+<<<<<<< ac2dcc6cc942be06996e1a009665ca48cda08f0d
+=======
+        maven { url 'https://jitpack.io' }
+
+>>>>>>> 真正项目提交
+>>>>>>> 真正项目提交
     }
 }
 

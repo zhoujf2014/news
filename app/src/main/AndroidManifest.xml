@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< ac2dcc6cc942be06996e1a009665ca48cda08f0d
+=======
+<<<<<<< ac2dcc6cc942be06996e1a009665ca48cda08f0d
+>>>>>>> 真正项目提交
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -16,6 +20,26 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+<<<<<<< ac2dcc6cc942be06996e1a009665ca48cda08f0d
+=======
+=======
+        <activity android:name=".ui.MainActivity">
+
+        </activity>
+
+        <activity
+            android:name=".ui.SplashActivity"
+            android:theme="@style/AppTheme.fullScreen">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+
+        </activity>
+        <activity android:name=".ui.NavigationActivity"></activity>
+
+>>>>>>> 真正项目提交
+>>>>>>> 真正项目提交
     </application>
 
 </manifest>
