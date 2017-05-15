@@ -57,6 +57,7 @@ private ContentFragment mContentFragment;
                   getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
                 }else {
                     getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
+                    //test
                 }
             }
         });
