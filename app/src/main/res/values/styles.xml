@@ -1,28 +1,16 @@
 <resources>
 
     <!-- Base application theme. -->
-<<<<<<< ac2dcc6cc942be06996e1a009665ca48cda08f0d
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-=======
-<<<<<<< ac2dcc6cc942be06996e1a009665ca48cda08f0d
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-=======
+
+
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
 
->>>>>>> 真正项目提交
->>>>>>> 真正项目提交
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-<<<<<<< ac2dcc6cc942be06996e1a009665ca48cda08f0d
-=======
-<<<<<<< ac2dcc6cc942be06996e1a009665ca48cda08f0d
-=======
     <style name="AppTheme.fullScreen" parent="AppTheme">
 
     <item name="android:windowFullscreen">true</item>
@@ -41,6 +29,4 @@
 
     />
 
->>>>>>> 真正项目提交
->>>>>>> 真正项目提交
 </resources>

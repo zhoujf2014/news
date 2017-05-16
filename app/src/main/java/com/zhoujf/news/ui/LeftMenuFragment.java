@@ -6,8 +6,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.zhoujf.news.R;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by ZhouJF on 2017-05-15.
@@ -15,11 +21,47 @@ import com.zhoujf.news.R;
 
 public class LeftMenuFragment extends Fragment {
 
+
+    @BindView(R.id.lv_leftfragment)
+    ListView mLvLeftfragment;
+    private String[] menus = {"新闻", "专题", "组图", "互动"};
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        return inflater.inflate(R.layout.fragment_left_menu,null);
+        View view = inflater.inflate(R.layout.fragment_left_menu, null);
+        ButterKnife.bind(this, view);
+        init();
+        return view;
 
     }
+
+    private void init() {
+        mLvLeftfragment.setAdapter(mLvLeftfragmentAdapter);
+    }
+
+    private BaseAdapter mLvLeftfragmentAdapter = new BaseAdapter() {
+        @Override
+        public int getCount() {
+            return menus.length;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return menus[position];
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            convertView = View.inflate(getContext(),R.layout.item_left_lv, null);
+            TextView tv = (TextView) convertView.findViewById(R.id.tv_left);
+            tv.setText(menus[position]);
+            return convertView;
+        }
+    };
 }

@@ -5,33 +5,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< ac2dcc6cc942be06996e1a009665ca48cda08f0d
+
     tools:context="com.zhoujf.news.MainActivity">
-=======
-<<<<<<< ac2dcc6cc942be06996e1a009665ca48cda08f0d
-    tools:context="com.zhoujf.news.MainActivity">
-=======
+
+
+
+
     >
->>>>>>> 真正项目提交
->>>>>>> 真正项目提交
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
-<<<<<<< ac2dcc6cc942be06996e1a009665ca48cda08f0d
-=======
-<<<<<<< ac2dcc6cc942be06996e1a009665ca48cda08f0d
->>>>>>> 真正项目提交
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-<<<<<<< ac2dcc6cc942be06996e1a009665ca48cda08f0d
-=======
-=======
-       />
->>>>>>> 真正项目提交
->>>>>>> 真正项目提交
 
 </android.support.constraint.ConstraintLayout>

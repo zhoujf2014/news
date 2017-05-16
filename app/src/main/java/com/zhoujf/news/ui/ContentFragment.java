@@ -85,6 +85,15 @@ public class ContentFragment extends android.support.v4.app.Fragment {
                         break;
                 }
             }
+            tabPage.setOnMenuClickListener(new TabPage.OnMenuClickListener() {
+                @Override
+                public void onMenuClick() {
+                    if (onContenStateChangeListener != null){
+
+                        onContenStateChangeListener.onMenuClick();
+                    }
+                }
+            });
             mTabPageContainer.removeAllViews();
             mTabPageContainer.addView(tabPage);
             if (onContenStateChangeListener != null){
@@ -100,5 +109,6 @@ public class ContentFragment extends android.support.v4.app.Fragment {
 
     interface OnContenStateChangeListener {
         void onTabSwitch(int cheackId);
+        void onMenuClick();
     }
 }

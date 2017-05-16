@@ -22,6 +22,7 @@ class TabPage extends RelativeLayout {
     ImageView mTabPageMenu;
     @BindView(R.id.tab_pag_title)
     TextView mTabPagTitle;
+    private OnMenuClickListener mOnMenuClickListener;
 
     public TabPage(Context context) {
         this(context, null);
@@ -45,8 +46,16 @@ class TabPage extends RelativeLayout {
 
     @OnClick(R.id.tab_page_menu)
     public void onClick() {
+        mOnMenuClickListener.onMenuClick();
     }
     public void setTitle(String title){
         mTabPagTitle.setText(title);
+    }
+   public void setOnMenuClickListener(OnMenuClickListener listener){
+       mOnMenuClickListener = listener;
+
+   }
+    public interface OnMenuClickListener{
+       void onMenuClick();
     }
 }

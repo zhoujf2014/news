@@ -60,6 +60,12 @@ private ContentFragment mContentFragment;
                     //test
                 }
             }
+
+            @Override
+            public void onMenuClick() {
+                toggle();
+
+            }
         });
 
     }
