@@ -45,12 +45,19 @@ public class LeftMenuFragment extends Fragment {
         mLvLeftfragment.setAdapter(mLvLeftfragmentAdapter);
         mLvLeftfragment.setOnItemClickListener(mLvLeftfragmentClickListener);
     }
+
+    private int mPosition = 0;
     private AdapterView.OnItemClickListener mLvLeftfragmentClickListener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             mOnMenuItemClickListener.onItemClick(position);
+            if(position == mPosition){
+                return;
+            }
             parent.getChildAt(position).setEnabled(true);
             Log.d(TAG, "onItemClick:条目被点击 " + position);
+            parent.getChildAt(mPosition).setEnabled(false);
+            mPosition = position;
         }
     };
     private BaseAdapter mLvLeftfragmentAdapter = new BaseAdapter() {

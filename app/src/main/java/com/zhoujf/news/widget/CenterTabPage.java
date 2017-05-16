@@ -1,9 +1,12 @@
 package com.zhoujf.news.widget;
 
 import android.content.Context;
+import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.View;
 
+import com.zhoujf.news.R;
 import com.zhoujf.news.ui.BaseTabPage;
 
 /**
@@ -18,7 +21,15 @@ public class CenterTabPage extends BaseTabPage {
 
     public CenterTabPage(Context context, AttributeSet attrs) {
         super(context, attrs);
+
+        initData();
     }
+
+    private void initData() {
+        View view = View.inflate(getContext(), R.layout.content_text, null);
+
+    }
+
 
     @Override
     public void setItemClick(int position) {
