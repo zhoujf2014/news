@@ -9,6 +9,8 @@ import android.view.View;
 import com.zhoujf.news.R;
 import com.zhoujf.news.ui.BaseTabPage;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by ZhouJF on 2017-05-16.
  */
@@ -22,20 +24,18 @@ public class CenterTabPage extends BaseTabPage {
     public CenterTabPage(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        initData();
-    }
-
-    private void initData() {
-        View view = View.inflate(getContext(), R.layout.content_text, null);
 
     }
+
+
 
 
     @Override
     public void setItemClick(int position) {
         switch (position) {
             case 0:
-                Log.d(TAG, "setItemClick: 新闻0");
+                TextIndicator textIndicator = new TextIndicator(getContext());
+                mFlContent.addView(textIndicator);
                 break;
             case 1:
                 Log.d(TAG, "setItemClick: 新闻1");

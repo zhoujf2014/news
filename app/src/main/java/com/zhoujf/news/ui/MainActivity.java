@@ -81,7 +81,6 @@ private ContentFragment mContentFragment;
             @Override
             public void onMenuClick() {
                 toggle();
-
             }
         });
 

@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-;
 
 import com.zhoujf.news.R;
 import com.zhoujf.news.widget.AffairTabPage;
