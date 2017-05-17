@@ -34,10 +34,13 @@ public class CenterTabPage extends BaseTabPage {
     public void setItemClick(int position) {
         switch (position) {
             case 0:
+                NewsPullToRefresh newsPage = new NewsPullToRefresh(getContext());
                 TextIndicator textIndicator = new TextIndicator(getContext());
-                mFlContent.addView(textIndicator);
+                mFlContent.addView(newsPage);
                 break;
             case 1:
+
+
                 Log.d(TAG, "setItemClick: 新闻1");
                 break;
             case 2:

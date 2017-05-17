@@ -2,9 +2,11 @@ package com.zhoujf.news.ui;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
+import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
@@ -42,13 +44,17 @@ public class SplashActivity extends BaseActivity {
     }
 
     private void startAnim() {
+
+
         AnimationSet animSet = new AnimationSet(true);
+        RotateAnimation rotateAnimation = new RotateAnimation(0,360,Animation.RELATIVE_TO_PARENT,mIvSplash.getWidth()/2,Animation.RELATIVE_TO_PARENT,mIvSplash.getHeight()/2);
         AlphaAnimation alphaAnimation = new AlphaAnimation(0, 1);
         ScaleAnimation scaleAnimation = new ScaleAnimation(0, 1, 0, 1, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         TranslateAnimation translateAnimation = new TranslateAnimation(Animation.RELATIVE_TO_PARENT, -1, Animation.RELATIVE_TO_PARENT, 0, Animation.RELATIVE_TO_PARENT, 0, Animation.RELATIVE_TO_PARENT, 0);
+        animSet.addAnimation(rotateAnimation);
         animSet.addAnimation(alphaAnimation);
         animSet.addAnimation(scaleAnimation);
-        animSet.addAnimation(translateAnimation);
+       // animSet.addAnimation(translateAnimation);
         animSet.setDuration(3000);
         mIvSplash.startAnimation(animSet);
         animSet.setAnimationListener(mAnimationListener);
