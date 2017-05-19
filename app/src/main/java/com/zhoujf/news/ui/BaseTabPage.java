@@ -25,7 +25,9 @@ public class BaseTabPage extends RelativeLayout {
     @BindView(R.id.tab_pag_title)
     TextView mTabPagTitle;
     @BindView(R.id.fl_content)
-   public FrameLayout mFlContent;
+    public FrameLayout mFlContent;
+    @BindView(R.id.iv_pic_type)
+   public ImageView mIvPicType;
 
     private OnMenuClickListener mOnMenuClickListener;
 
@@ -53,17 +55,34 @@ public class BaseTabPage extends RelativeLayout {
         mTabPagTitle.setText(title);
     }
 
-    @OnClick(R.id.tab_page_menu)
-    public void onClick() {
-        mOnMenuClickListener.onMenuClick();
-    }
-
 
     public void setOnMenuClickListener(OnMenuClickListener listener) {
         mOnMenuClickListener = listener;
     }
 
     public void setItemClick(int position) {
+
+
+    }
+    public void loadDataFromServer() {
+    }
+
+
+
+
+    @OnClick({R.id.tab_page_menu, R.id.iv_pic_type})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.tab_page_menu:
+                mOnMenuClickListener.onMenuClick();
+                break;
+            case R.id.iv_pic_type:
+
+                break;
+        }
+    }
+
+    public void setTypevisible(int gone) {
 
     }
 

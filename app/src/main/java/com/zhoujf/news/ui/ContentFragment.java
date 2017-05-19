@@ -82,11 +82,12 @@ public class ContentFragment extends android.support.v4.app.Fragment {
                     case R.id.tab_news_center:
                         tabPage = new CenterTabPage(getContext());
                         tabPage.setTitle("新闻中心");
+
                         break;
                     case R.id.tab_smart_service:
                         tabPage = new ServiceTabPage(getContext());
                         tabPage.setTitle("智慧服务");
-                        Log.d(TAG, "onCheckedChanged:创建智慧服务tabge+ ");
+
                         break;
                     case R.id.tab_gov_affairs:
                         tabPage = new AffairTabPage(getContext());
@@ -98,8 +99,11 @@ public class ContentFragment extends android.support.v4.app.Fragment {
                         tabPage.setTitle("设置中心");
                         break;
                 }
+
                 sa.append(checkedId,tabPage);
             }
+            Log.d(TAG, "onCheckedChanged: 新闻中心，即将加载网路数据");
+            tabPage.loadDataFromServer();
             tabPage.setOnMenuClickListener(new BaseTabPage.OnMenuClickListener() {
                 @Override
                 public void onMenuClick() {

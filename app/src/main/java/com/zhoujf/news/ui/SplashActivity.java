@@ -12,6 +12,7 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 
 import com.zhoujf.news.R;
+import com.zhoujf.news.util.SP;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,12 +24,11 @@ import butterknife.ButterKnife;
 public class SplashActivity extends BaseActivity {
 
 
-
     private Context mContext;
     private ImageView mIvSplash;
 
     @Override
-    int getLayoutId() {
+    protected int getLayoutId() {
         return R.layout.activity_splash;
     }
 
@@ -47,15 +47,15 @@ public class SplashActivity extends BaseActivity {
 
 
         AnimationSet animSet = new AnimationSet(true);
-        RotateAnimation rotateAnimation = new RotateAnimation(0,360,Animation.RELATIVE_TO_PARENT,mIvSplash.getWidth()/2,Animation.RELATIVE_TO_PARENT,mIvSplash.getHeight()/2);
+        RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Animation.RELATIVE_TO_PARENT, 0.5f, Animation.RELATIVE_TO_PARENT, 0.5f);
         AlphaAnimation alphaAnimation = new AlphaAnimation(0, 1);
         ScaleAnimation scaleAnimation = new ScaleAnimation(0, 1, 0, 1, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         TranslateAnimation translateAnimation = new TranslateAnimation(Animation.RELATIVE_TO_PARENT, -1, Animation.RELATIVE_TO_PARENT, 0, Animation.RELATIVE_TO_PARENT, 0, Animation.RELATIVE_TO_PARENT, 0);
         animSet.addAnimation(rotateAnimation);
         animSet.addAnimation(alphaAnimation);
         animSet.addAnimation(scaleAnimation);
-       // animSet.addAnimation(translateAnimation);
-        animSet.setDuration(3000);
+        // animSet.addAnimation(translateAnimation);
+        animSet.setDuration(2000);
         mIvSplash.startAnimation(animSet);
         animSet.setAnimationListener(mAnimationListener);
 
@@ -71,8 +71,15 @@ public class SplashActivity extends BaseActivity {
 
         @Override
         public void onAnimationEnd(Animation animation) {
-            startActivity(NavigationActivity.class);
+            boolean isInstalling = SP.getBooleanData("IsFirstInstall", mContext);
+            if (isInstalling) {
+
+                startActivity(MainActivity.class);
+            } else {
+                startActivity(NavigationActivity.class);
+            }
             finish();
+
         }
 
         @Override

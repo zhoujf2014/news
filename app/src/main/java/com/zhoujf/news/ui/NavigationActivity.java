@@ -1,5 +1,6 @@
 package com.zhoujf.news.ui;
 
+import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 
 import com.viewpagerindicator.CirclePageIndicator;
 import com.zhoujf.news.R;
+import com.zhoujf.news.util.SP;
 
 /**
  * Created by ZhouJF on 2017-05-15.
@@ -20,15 +22,17 @@ public  class NavigationActivity extends BaseActivity{
     private int[] NAVIGATIONIMAGES = {R.mipmap.guide_1,R.mipmap.guide_2,R.mipmap.guide_3};
     private CirclePageIndicator mIndicator;
     private Button mButton;
+    private Context mContext;
 
     @Override
-    int getLayoutId() {
+    protected int getLayoutId() {
         return R.layout.activity_navigation;
     }
 
     @Override
     public void init() {
         super.init();
+        mContext = this;
         mViewPager = (ViewPager) findViewById(R.id.vp_navigation);
         mButton = (Button) findViewById(R.id.bt_naviga);
         mViewPager.setAdapter(viewPagerAdapter);
@@ -43,6 +47,7 @@ public  class NavigationActivity extends BaseActivity{
     private View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            SP.setBooleanData("IsFirstInstall",true,mContext);
             startActivity(MainActivity.class);
             finish();
         }

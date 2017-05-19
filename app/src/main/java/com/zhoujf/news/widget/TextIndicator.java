@@ -10,28 +10,39 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.itheima.pulltorefreshlib.PullToRefreshBase;
 import com.viewpagerindicator.TabPageIndicator;
 import com.zhoujf.news.R;
+import com.zhoujf.news.bean.CatagreBean;
+
+import java.util.List;
 
 /**
  * Created by ZhouJF on 2017-05-16.
  */
 
 public class TextIndicator extends LinearLayout {
-    private static final String[] CONTENT = new String[]{"Recent", "Artists", "Albums", "Songs", "Playlists", "Genres"};
+    private static final String TAG = "TextIndicator";
     private Context mContext;
+    private List<CatagreBean.DataBean.ChildrenBean> mDataBean;
+    private TabPageIndicator mIndicator;
+
 
     public TextIndicator(Context context) {
         this(context, null);
     }
 
+
     public TextIndicator(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+
         mContext = context;
         View view = View.inflate(context, R.layout.simple_tabs, this);
 
@@ -39,38 +50,55 @@ public class TextIndicator extends LinearLayout {
         ViewPager pager = (ViewPager) findViewById(R.id.pager);
         pager.setAdapter(adapter);
 
-        TabPageIndicator indicator = (TabPageIndicator) findViewById(R.id.indicator);
-        indicator.setViewPager(pager);
+        mIndicator = (TabPageIndicator) findViewById(R.id.indicator);
+        mIndicator.setViewPager(pager);
     }
 
     private PagerAdapter adapter = new PagerAdapter() {
         @Override
         public int getCount() {
-            return CONTENT.length;
+            if (mDataBean == null) {
+                return 0;
+            }
+            Log.d(TAG, "getCount: " + mDataBean.size());
+            return mDataBean.size();
+
         }
 
         @Override
         public boolean isViewFromObject(View view, Object object) {
-            return view==object;
+            return view == object;
         }
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
-            TextView tv = new TextView(mContext);
-            container.addView(tv);
-            return tv;
+            NewsPullToRefresh newsPullToRefresh = new NewsPullToRefresh(getContext());
+
+            String url = mDataBean.get(position).getUrl();
+            newsPullToRefresh.setData(url);
+
+            container.addView(newsPullToRefresh);
+            return newsPullToRefresh;
         }
 
         @Override
         public void destroyItem(ViewGroup container, int position, Object object) {
-           container.removeView((View) object);
+            container.removeView((View) object);
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return CONTENT[position];
+            return mDataBean.get(position).getTitle();
         }
     };
 
 
+
+
+    public void setData(List<CatagreBean.DataBean.ChildrenBean> dataBean) {
+        mDataBean = dataBean;
+        mIndicator.notifyDataSetChanged();
+        adapter.notifyDataSetChanged();
+
+    }
 }

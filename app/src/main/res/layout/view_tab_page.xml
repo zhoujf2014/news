@@ -1,43 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
-<!--标题栏-->
-
+    <!--标题栏-->
 
 
     <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@mipmap/title_red_bg">
-
-    <ImageView
-        android:id="@+id/tab_page_menu"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@mipmap/img_menu"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="8dp"/>
+        android:background="@mipmap/title_red_bg">
 
-    <!--标题-->
-    <TextView
-        android:id="@+id/tab_pag_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:text="首页"/>
+        <ImageView
+            android:id="@+id/tab_page_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:src="@mipmap/img_menu"/>
 
-</RelativeLayout>
+        <!--标题-->
+        <TextView
+            android:id="@+id/tab_pag_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="首页"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"/>
+
+        <ImageView
+            android:id="@+id/iv_pic_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="8dp"
+            android:src="@mipmap/icon_pic_grid_type"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
     <FrameLayout
-    android:layout_weight="1"
         android:id="@+id/fl_content"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
-
+        android:layout_height="0dp"
+        android:layout_weight="1">
     </FrameLayout>
 
 

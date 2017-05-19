@@ -4,17 +4,17 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <ImageView
+    <com.android.volley.toolbox.NetworkImageView
         android:id="@+id/iv_newspage_img"
         android:layout_width="160dp"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:layout_margin="10dp"
         android:scaleType="fitXY"
         android:src="@mipmap/news_pic_default"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:layout_margin="10dp">
 
         <TextView

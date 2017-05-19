@@ -27,7 +27,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void init() {
 
     }
-    abstract int getLayoutId();
+    protected abstract int getLayoutId();
 
     public  void startActivity(Class c){
         Intent intent = new Intent(this,c);
